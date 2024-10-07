@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		09B59A632CB37E3900B52F87 /* BoxingProTrainerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B59A622CB37E3900B52F87 /* BoxingProTrainerApp.swift */; };
+		09B59A652CB37E3900B52F87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B59A642CB37E3900B52F87 /* ContentView.swift */; };
+		09B59A672CB37E3F00B52F87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09B59A662CB37E3F00B52F87 /* Assets.xcassets */; };
+		09B59A6A2CB37E3F00B52F87 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09B59A692CB37E3F00B52F87 /* Preview Assets.xcassets */; };
+		09B59A742CB37E4000B52F87 /* BoxingProTrainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B59A732CB37E4000B52F87 /* BoxingProTrainerTests.swift */; };
+		09B59A7E2CB37E4000B52F87 /* BoxingProTrainerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B59A7D2CB37E4000B52F87 /* BoxingProTrainerUITests.swift */; };
+		09B59A802CB37E4000B52F87 /* BoxingProTrainerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B59A7F2CB37E4000B52F87 /* BoxingProTrainerUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		09B59A702CB37E4000B52F87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09B59A572CB37E3900B52F87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 09B59A5E2CB37E3900B52F87;
+			remoteInfo = BoxingProTrainer;
+		};
+		09B59A7A2CB37E4000B52F87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09B59A572CB37E3900B52F87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 09B59A5E2CB37E3900B52F87;
+			remoteInfo = BoxingProTrainer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		09B59A5F2CB37E3900B52F87 /* BoxingProTrainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxingProTrainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		09B59A622CB37E3900B52F87 /* BoxingProTrainerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxingProTrainerApp.swift; sourceTree = "<group>"; };
+		09B59A642CB37E3900B52F87 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		09B59A662CB37E3F00B52F87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		09B59A692CB37E3F00B52F87 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		09B59A6F2CB37E4000B52F87 /* BoxingProTrainerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoxingProTrainerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		09B59A732CB37E4000B52F87 /* BoxingProTrainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxingProTrainerTests.swift; sourceTree = "<group>"; };
+		09B59A792CB37E4000B52F87 /* BoxingProTrainerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoxingProTrainerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		09B59A7D2CB37E4000B52F87 /* BoxingProTrainerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxingProTrainerUITests.swift; sourceTree = "<group>"; };
+		09B59A7F2CB37E4000B52F87 /* BoxingProTrainerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxingProTrainerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		09B59A5C2CB37E3900B52F87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09B59A6C2CB37E4000B52F87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09B59A762CB37E4000B52F87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		09B59A562CB37E3900B52F87 = {
+			isa = PBXGroup;
+			children = (
+				09B59A612CB37E3900B52F87 /* BoxingProTrainer */,
+				09B59A722CB37E4000B52F87 /* BoxingProTrainerTests */,
+				09B59A7C2CB37E4000B52F87 /* BoxingProTrainerUITests */,
+				09B59A602CB37E3900B52F87 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		09B59A602CB37E3900B52F87 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				09B59A5F2CB37E3900B52F87 /* BoxingProTrainer.app */,
+				09B59A6F2CB37E4000B52F87 /* BoxingProTrainerTests.xctest */,
+				09B59A792CB37E4000B52F87 /* BoxingProTrainerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		09B59A612CB37E3900B52F87 /* BoxingProTrainer */ = {
+			isa = PBXGroup;
+			children = (
+				09B59A622CB37E3900B52F87 /* BoxingProTrainerApp.swift */,
+				09B59A642CB37E3900B52F87 /* ContentView.swift */,
+				09B59A662CB37E3F00B52F87 /* Assets.xcassets */,
+				09B59A682CB37E3F00B52F87 /* Preview Content */,
+			);
+			path = BoxingProTrainer;
+			sourceTree = "<group>";
+		};
+		09B59A682CB37E3F00B52F87 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				09B59A692CB37E3F00B52F87 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		09B59A722CB37E4000B52F87 /* BoxingProTrainerTests */ = {
+			isa = PBXGroup;
+			children = (
+				09B59A732CB37E4000B52F87 /* BoxingProTrainerTests.swift */,
+			);
+			path = BoxingProTrainerTests;
+			sourceTree = "<group>";
+		};
+		09B59A7C2CB37E4000B52F87 /* BoxingProTrainerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				09B59A7D2CB37E4000B52F87 /* BoxingProTrainerUITests.swift */,
+				09B59A7F2CB37E4000B52F87 /* BoxingProTrainerUITestsLaunchTests.swift */,
+			);
+			path = BoxingProTrainerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		09B59A5E2CB37E3900B52F87 /* BoxingProTrainer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09B59A832CB37E4000B52F87 /* Build configuration list for PBXNativeTarget "BoxingProTrainer" */;
+			buildPhases = (
+				09B59A5B2CB37E3900B52F87 /* Sources */,
+				09B59A5C2CB37E3900B52F87 /* Frameworks */,
+				09B59A5D2CB37E3900B52F87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BoxingProTrainer;
+			productName = BoxingProTrainer;
+			productReference = 09B59A5F2CB37E3900B52F87 /* BoxingProTrainer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		09B59A6E2CB37E4000B52F87 /* BoxingProTrainerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09B59A862CB37E4000B52F87 /* Build configuration list for PBXNativeTarget "BoxingProTrainerTests" */;
+			buildPhases = (
+				09B59A6B2CB37E4000B52F87 /* Sources */,
+				09B59A6C2CB37E4000B52F87 /* Frameworks */,
+				09B59A6D2CB37E4000B52F87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				09B59A712CB37E4000B52F87 /* PBXTargetDependency */,
+			);
+			name = BoxingProTrainerTests;
+			productName = BoxingProTrainerTests;
+			productReference = 09B59A6F2CB37E4000B52F87 /* BoxingProTrainerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		09B59A782CB37E4000B52F87 /* BoxingProTrainerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09B59A892CB37E4000B52F87 /* Build configuration list for PBXNativeTarget "BoxingProTrainerUITests" */;
+			buildPhases = (
+				09B59A752CB37E4000B52F87 /* Sources */,
+				09B59A762CB37E4000B52F87 /* Frameworks */,
+				09B59A772CB37E4000B52F87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				09B59A7B2CB37E4000B52F87 /* PBXTargetDependency */,
+			);
+			name = BoxingProTrainerUITests;
+			productName = BoxingProTrainerUITests;
+			productReference = 09B59A792CB37E4000B52F87 /* BoxingProTrainerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		09B59A572CB37E3900B52F87 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					09B59A5E2CB37E3900B52F87 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					09B59A6E2CB37E4000B52F87 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 09B59A5E2CB37E3900B52F87;
+					};
+					09B59A782CB37E4000B52F87 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 09B59A5E2CB37E3900B52F87;
+					};
+				};
+			};
+			buildConfigurationList = 09B59A5A2CB37E3900B52F87 /* Build configuration list for PBXProject "BoxingProTrainer" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 09B59A562CB37E3900B52F87;
+			productRefGroup = 09B59A602CB37E3900B52F87 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				09B59A5E2CB37E3900B52F87 /* BoxingProTrainer */,
+				09B59A6E2CB37E4000B52F87 /* BoxingProTrainerTests */,
+				09B59A782CB37E4000B52F87 /* BoxingProTrainerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		09B59A5D2CB37E3900B52F87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09B59A6A2CB37E3F00B52F87 /* Preview Assets.xcassets in Resources */,
+				09B59A672CB37E3F00B52F87 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09B59A6D2CB37E4000B52F87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09B59A772CB37E4000B52F87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		09B59A5B2CB37E3900B52F87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09B59A652CB37E3900B52F87 /* ContentView.swift in Sources */,
+				09B59A632CB37E3900B52F87 /* BoxingProTrainerApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09B59A6B2CB37E4000B52F87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09B59A742CB37E4000B52F87 /* BoxingProTrainerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09B59A752CB37E4000B52F87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09B59A7E2CB37E4000B52F87 /* BoxingProTrainerUITests.swift in Sources */,
+				09B59A802CB37E4000B52F87 /* BoxingProTrainerUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		09B59A712CB37E4000B52F87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 09B59A5E2CB37E3900B52F87 /* BoxingProTrainer */;
+			targetProxy = 09B59A702CB37E4000B52F87 /* PBXContainerItemProxy */;
+		};
+		09B59A7B2CB37E4000B52F87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 09B59A5E2CB37E3900B52F87 /* BoxingProTrainer */;
+			targetProxy = 09B59A7A2CB37E4000B52F87 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		09B59A812CB37E4000B52F87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		09B59A822CB37E4000B52F87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		09B59A842CB37E4000B52F87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BoxingProTrainer/Preview Content\"";
+				DEVELOPMENT_TEAM = VS54H3MNP6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pragmaticprogramming.BoxingProTrainer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		09B59A852CB37E4000B52F87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BoxingProTrainer/Preview Content\"";
+				DEVELOPMENT_TEAM = VS54H3MNP6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pragmaticprogramming.BoxingProTrainer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		09B59A872CB37E4000B52F87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VS54H3MNP6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pragmaticprogramming.BoxingProTrainerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoxingProTrainer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BoxingProTrainer";
+			};
+			name = Debug;
+		};
+		09B59A882CB37E4000B52F87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VS54H3MNP6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pragmaticprogramming.BoxingProTrainerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoxingProTrainer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BoxingProTrainer";
+			};
+			name = Release;
+		};
+		09B59A8A2CB37E4000B52F87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VS54H3MNP6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pragmaticprogramming.BoxingProTrainerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BoxingProTrainer;
+			};
+			name = Debug;
+		};
+		09B59A8B2CB37E4000B52F87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VS54H3MNP6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pragmaticprogramming.BoxingProTrainerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BoxingProTrainer;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		09B59A5A2CB37E3900B52F87 /* Build configuration list for PBXProject "BoxingProTrainer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09B59A812CB37E4000B52F87 /* Debug */,
+				09B59A822CB37E4000B52F87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09B59A832CB37E4000B52F87 /* Build configuration list for PBXNativeTarget "BoxingProTrainer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09B59A842CB37E4000B52F87 /* Debug */,
+				09B59A852CB37E4000B52F87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09B59A862CB37E4000B52F87 /* Build configuration list for PBXNativeTarget "BoxingProTrainerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09B59A872CB37E4000B52F87 /* Debug */,
+				09B59A882CB37E4000B52F87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09B59A892CB37E4000B52F87 /* Build configuration list for PBXNativeTarget "BoxingProTrainerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09B59A8A2CB37E4000B52F87 /* Debug */,
+				09B59A8B2CB37E4000B52F87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 09B59A572CB37E3900B52F87 /* Project object */;
+}
