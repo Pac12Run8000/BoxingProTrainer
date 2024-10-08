@@ -17,6 +17,7 @@
 		09B59A8E2CB4947400B52F87 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B59A8D2CB4947400B52F87 /* Configuration.swift */; };
 		09B59A912CB494C500B52F87 /* TimerConfigurationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B59A902CB494C500B52F87 /* TimerConfigurationInteractor.swift */; };
 		09B59A942CB4952100B52F87 /* TimerConfigurationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B59A932CB4952100B52F87 /* TimerConfigurationPresenter.swift */; };
+		09B59A992CB5A6E100B52F87 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B59A982CB5A6E100B52F87 /* DetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		09B59A8D2CB4947400B52F87 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		09B59A902CB494C500B52F87 /* TimerConfigurationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerConfigurationInteractor.swift; sourceTree = "<group>"; };
 		09B59A932CB4952100B52F87 /* TimerConfigurationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerConfigurationPresenter.swift; sourceTree = "<group>"; };
+		09B59A982CB5A6E100B52F87 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				09B59A642CB37E3900B52F87 /* TimerConfigurationView.swift */,
+				09B59A982CB5A6E100B52F87 /* DetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				09B59A942CB4952100B52F87 /* TimerConfigurationPresenter.swift in Sources */,
 				09B59A652CB37E3900B52F87 /* TimerConfigurationView.swift in Sources */,
 				09B59A632CB37E3900B52F87 /* BoxingProTrainerApp.swift in Sources */,
+				09B59A992CB5A6E100B52F87 /* DetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
