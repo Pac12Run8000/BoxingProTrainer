@@ -65,9 +65,9 @@ class TimerConfigurationInteractor: TimerConfigurationInteractorProtocol {
     func fetchIntervals(for configurationTitle: String) -> Interval {
         switch configurationTitle {
         case "Anaerobic Lactic Energy System (Glycolytic System)":
-            return Interval(title: "Lifting Interval", options: ["30 seconds", "45 seconds", "1 minute", "1 minute 30 seconds"])
+            return Interval(title: "Lifting Rest Interval", options: ["30 seconds", "45 seconds", "1 minute", "1 minute 30 seconds"])
         case "Aerobic Energy System (Oxidative System)":
-            return Interval(title: "Running Interval", options: ["1 minute", "2 minutes"])
+            return Interval(title: "Running Rest Interval", options: ["1 minute", "2 minutes"])
         default:
             return Interval(title: "", options: [])
         }
