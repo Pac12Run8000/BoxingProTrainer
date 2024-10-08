@@ -2,11 +2,7 @@ import SwiftUI
 
 struct TimerConfigurationView: View {
     @ObservedObject var presenter: TimerConfigurationPresenter
-    @State private var selectedIntervalLifting = "30 seconds" // Default for Anaerobic Lactic Energy System
-    @State private var selectedIntervalRunning = "1 minute" // Default for Aerobic Energy System
-
-    let liftingIntervals = ["30 seconds", "45 seconds", "1 minute", "1 minute 30 seconds"]
-    let runningIntervals = ["1 minute", "2 minutes"]
+    @State private var selectedInterval: String = ""
 
     var body: some View {
         NavigationView {
@@ -20,6 +16,7 @@ struct TimerConfigurationView: View {
                         Button(action: {
                             if presenter.currentPage > 1 {
                                 presenter.currentPage -= 1
+                                presenter.updateInterval()
                             }
                         }) {
                             Image(systemName: "chevron.left")
@@ -38,6 +35,7 @@ struct TimerConfigurationView: View {
                         Button(action: {
                             if presenter.currentPage < presenter.totalPages {
                                 presenter.currentPage += 1
+                                presenter.updateInterval()
                             }
                         }) {
                             Image(systemName: "chevron.right")
@@ -63,14 +61,13 @@ struct TimerConfigurationView: View {
                             .foregroundColor(.white)
                             .padding(.bottom, 10)
 
-                        // "More Details" button using NavigationLink to present the details view
                         NavigationLink(destination: DetailsView(configuration: presenter.getCurrentConfiguration())) {
                             Text("More Details")
                                 .font(.headline)
                                 .foregroundColor(.white)
                                 .frame(maxWidth: .infinity)
                                 .padding()
-                                .background(Color(red: 1.0, green: 0.55, blue: 0.2)) // Muted orange color for the button
+                                .background(Color(red: 1.0, green: 0.55, blue: 0.2)) // Muted orange color
                                 .cornerRadius(8)
                         }
                     }
@@ -79,52 +76,27 @@ struct TimerConfigurationView: View {
                     .cornerRadius(10)
                     .padding(.horizontal)
 
-                    // Conditional dropdown menu based on the selected configuration
-                    if presenter.getCurrentConfiguration().title == "Anaerobic Lactic Energy System (Glycolytic System)" {
-                        // Dropdown for Lifting Interval
-                        VStack(alignment: .leading) {
-                            Text("Lifting Interval")
-                                .font(.headline)
-                                .foregroundColor(.black)
-                                .padding(.bottom, 5)
+                    // Interval Dropdown based on the current configuration
+                    VStack(alignment: .leading) {
+                        Text(presenter.currentInterval.title)
+                            .font(.headline)
+                            .foregroundColor(.black)
+                            .padding(.bottom, 5)
 
-                            Picker("Select Interval", selection: $selectedIntervalLifting) {
-                                ForEach(liftingIntervals, id: \.self) { interval in
-                                    Text(interval)
-                                }
+                        Picker("Select Interval", selection: $selectedInterval) {
+                            ForEach(presenter.currentInterval.options, id: \.self) { option in
+                                Text(option)
                             }
-                            .pickerStyle(MenuPickerStyle()) // Use a dropdown menu style
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.white)
-                            .cornerRadius(8)
-                            .shadow(radius: 2)
                         }
-                        .padding(.horizontal)
-                        .padding(.top, 10)
-                    } else if presenter.getCurrentConfiguration().title == "Aerobic Energy System (Oxidative System)" {
-                        // Dropdown for Running Interval
-                        VStack(alignment: .leading) {
-                            Text("Running Interval")
-                                .font(.headline)
-                                .foregroundColor(.black)
-                                .padding(.bottom, 5)
-
-                            Picker("Select Interval", selection: $selectedIntervalRunning) {
-                                ForEach(runningIntervals, id: \.self) { interval in
-                                    Text(interval)
-                                }
-                            }
-                            .pickerStyle(MenuPickerStyle()) // Use a dropdown menu style
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.white)
-                            .cornerRadius(8)
-                            .shadow(radius: 2)
-                        }
-                        .padding(.horizontal)
-                        .padding(.top, 10)
+                        .pickerStyle(MenuPickerStyle()) // Use a dropdown menu style
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(8)
+                        .shadow(radius: 2)
                     }
+                    .padding(.horizontal)
+                    .padding(.top, 10)
 
                     Spacer()
                 }
