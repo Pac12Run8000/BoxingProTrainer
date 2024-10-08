@@ -5,7 +5,7 @@ struct TimerConfigurationView: View {
 
     var body: some View {
         VStack {
-            // Paging controls at the top with arrows and page indicator
+            // Paging controls remain at the top of the view
             HStack {
                 Button(action: {
                     if presenter.currentPage > 1 {
@@ -38,7 +38,7 @@ struct TimerConfigurationView: View {
 
             Divider().padding(.vertical)
 
-            // Display content for the current configuration with dynamic headers
+            // Display the current configuration's title and description below the paging controls
             VStack(alignment: .leading) {
                 Text(presenter.getCurrentConfiguration().title)
                     .font(.title2)
@@ -48,10 +48,10 @@ struct TimerConfigurationView: View {
                     .foregroundColor(.gray)
                     .padding(.bottom, 10)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.horizontal)
             .background(Color.gray.opacity(0.1))
             .cornerRadius(10)
-            .padding()
+            .padding(.horizontal)
 
             Spacer()
         }
