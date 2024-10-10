@@ -3,6 +3,7 @@ import SwiftUI
 struct TimerConfigurationView: View {
     @ObservedObject var presenter: TimerConfigurationPresenter
     @State private var selectedInterval: String = ""
+    @State private var timerDisplay: String = "00:00" // State variable for the timer display
 
     var body: some View {
         NavigationView {
@@ -112,6 +113,12 @@ struct TimerConfigurationView: View {
                     }
                     .padding(.horizontal)
                     .padding(.top, 10)
+
+                    // Timer display beneath the Start Timer button
+                    Text(timerDisplay)
+                       .font(.system(size: 80, weight: .bold, design: .default))
+                       .foregroundColor(.black)
+                       .padding(.top, 20)
 
                     Spacer()
                 }
