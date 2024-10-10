@@ -98,6 +98,21 @@ struct TimerConfigurationView: View {
                     .padding(.horizontal)
                     .padding(.top, 10)
 
+                    // Start Timer button
+                    Button(action: {
+                        // Action to start the timer goes here
+                    }) {
+                        Text("Start Timer")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.green) // Green color for the start button
+                            .cornerRadius(8)
+                    }
+                    .padding(.horizontal)
+                    .padding(.top, 10)
+
                     Spacer()
                 }
                 .padding()
@@ -107,3 +122,4 @@ struct TimerConfigurationView: View {
         }
     }
 }
+
