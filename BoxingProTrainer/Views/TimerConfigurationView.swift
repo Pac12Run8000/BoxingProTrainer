@@ -6,6 +6,7 @@ struct TimerConfigurationView: View {
     @State private var timerDisplay: String = "00:00" // Initial timer display set to 0:00
     @State private var elapsedTime: Int = 0 // Elapsed time in seconds
     @State private var timer: Timer? = nil // Timer object to handle the countdown
+    @State private var isPaused: Bool = false // State to track whether the timer is paused
 
     var body: some View {
         NavigationView {
@@ -25,8 +26,12 @@ struct TimerConfigurationView: View {
                     // Integrate the IntervalPickerView
                     IntervalPickerView(selectedInterval: $selectedInterval, interval: presenter.currentInterval)
 
-                    // Integrate the TimerControlsView with start and reset actions
-                    TimerControlsView(timerDisplay: $timerDisplay, startTimerAction: startTimer, resetTimerAction: resetTimer)
+                    // Integrate the TimerControlsView with start, reset, and pause actions
+                    TimerControlsView(timerDisplay: $timerDisplay,
+                                      startTimerAction: startTimer,
+                                      resetTimerAction: resetTimer,
+                                      pauseTimerAction: pauseTimer,
+                                      isPaused: $isPaused)
 
                     Spacer()
                 }
@@ -40,15 +45,16 @@ struct TimerConfigurationView: View {
     // Function to start the count-up timer
     private func startTimer() {
         timer?.invalidate() // Stop any existing timer
+        isPaused = false // Set paused state to false when starting the timer
         elapsedTime = 0
         updateTimerDisplay()
 
         // Create a new timer that fires every second
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            if elapsedTime < 30 {
+            if !isPaused && elapsedTime < 30 {
                 elapsedTime += 1
                 updateTimerDisplay()
-            } else {
+            } else if elapsedTime >= 30 {
                 timer?.invalidate() // Stop the timer when it reaches 30 seconds
             }
         }
@@ -58,7 +64,13 @@ struct TimerConfigurationView: View {
     private func resetTimer() {
         timer?.invalidate() // Stop the timer if it's running
         elapsedTime = 0
+        isPaused = false // Reset the pause state
         updateTimerDisplay() // Reset the timer display to 00:00
+    }
+
+    // Function to pause or resume the timer
+    private func pauseTimer() {
+        isPaused.toggle()
     }
 
     // Function to update the timer display

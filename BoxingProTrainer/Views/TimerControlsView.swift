@@ -4,6 +4,8 @@ struct TimerControlsView: View {
     @Binding var timerDisplay: String
     let startTimerAction: () -> Void
     let resetTimerAction: () -> Void
+    let pauseTimerAction: () -> Void
+    @Binding var isPaused: Bool
 
     var body: some View {
         VStack {
@@ -36,7 +38,19 @@ struct TimerControlsView: View {
             }
             .padding(.horizontal)
             .padding(.top, 10)
+
+            // Pause Timer button
+            Button(action: pauseTimerAction) {
+                Text(isPaused ? "Resume Timer" : "Pause Timer")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.orange) // Orange color for the pause button
+                    .cornerRadius(8)
+            }
+            .padding(.horizontal)
+            .padding(.top, 10)
         }
     }
 }
-
