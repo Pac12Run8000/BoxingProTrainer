@@ -25,8 +25,8 @@ struct TimerConfigurationView: View {
                     // Integrate the IntervalPickerView
                     IntervalPickerView(selectedInterval: $selectedInterval, interval: presenter.currentInterval)
 
-                    // Integrate the TimerControlsView
-                    TimerControlsView(timerDisplay: $timerDisplay, startTimerAction: startTimer)
+                    // Integrate the TimerControlsView with start and reset actions
+                    TimerControlsView(timerDisplay: $timerDisplay, startTimerAction: startTimer, resetTimerAction: resetTimer)
 
                     Spacer()
                 }
@@ -52,6 +52,13 @@ struct TimerConfigurationView: View {
                 timer?.invalidate() // Stop the timer when it reaches 30 seconds
             }
         }
+    }
+
+    // Function to reset the timer to 00:00
+    private func resetTimer() {
+        timer?.invalidate() // Stop the timer if it's running
+        elapsedTime = 0
+        updateTimerDisplay() // Reset the timer display to 00:00
     }
 
     // Function to update the timer display
