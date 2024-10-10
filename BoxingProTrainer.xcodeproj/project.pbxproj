@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		092D696A2CB8797A00614208 /* PagingControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092D69692CB8797A00614208 /* PagingControlView.swift */; };
+		092D696C2CB879BF00614208 /* ConfigurationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092D696B2CB879BF00614208 /* ConfigurationDetailsView.swift */; };
+		092D696E2CB879EA00614208 /* IntervalPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092D696D2CB879EA00614208 /* IntervalPickerView.swift */; };
+		092D69702CB87A1400614208 /* TimerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092D696F2CB87A1400614208 /* TimerControlsView.swift */; };
 		09B59A632CB37E3900B52F87 /* BoxingProTrainerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B59A622CB37E3900B52F87 /* BoxingProTrainerApp.swift */; };
 		09B59A652CB37E3900B52F87 /* TimerConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B59A642CB37E3900B52F87 /* TimerConfigurationView.swift */; };
 		09B59A672CB37E3F00B52F87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09B59A662CB37E3F00B52F87 /* Assets.xcassets */; };
@@ -39,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		092D69692CB8797A00614208 /* PagingControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingControlView.swift; sourceTree = "<group>"; };
+		092D696B2CB879BF00614208 /* ConfigurationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationDetailsView.swift; sourceTree = "<group>"; };
+		092D696D2CB879EA00614208 /* IntervalPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalPickerView.swift; sourceTree = "<group>"; };
+		092D696F2CB87A1400614208 /* TimerControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerControlsView.swift; sourceTree = "<group>"; };
 		09B59A5F2CB37E3900B52F87 /* BoxingProTrainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxingProTrainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B59A622CB37E3900B52F87 /* BoxingProTrainerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxingProTrainerApp.swift; sourceTree = "<group>"; };
 		09B59A642CB37E3900B52F87 /* TimerConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerConfigurationView.swift; sourceTree = "<group>"; };
@@ -170,6 +178,10 @@
 			children = (
 				09B59A642CB37E3900B52F87 /* TimerConfigurationView.swift */,
 				09B59A982CB5A6E100B52F87 /* DetailsView.swift */,
+				092D69692CB8797A00614208 /* PagingControlView.swift */,
+				092D696B2CB879BF00614208 /* ConfigurationDetailsView.swift */,
+				092D696D2CB879EA00614208 /* IntervalPickerView.swift */,
+				092D696F2CB87A1400614208 /* TimerControlsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -307,8 +319,12 @@
 				09B59A8E2CB4947400B52F87 /* Configuration.swift in Sources */,
 				09B59A912CB494C500B52F87 /* TimerConfigurationInteractor.swift in Sources */,
 				09B59A942CB4952100B52F87 /* TimerConfigurationPresenter.swift in Sources */,
+				092D696E2CB879EA00614208 /* IntervalPickerView.swift in Sources */,
 				09B59A652CB37E3900B52F87 /* TimerConfigurationView.swift in Sources */,
+				092D696A2CB8797A00614208 /* PagingControlView.swift in Sources */,
+				092D696C2CB879BF00614208 /* ConfigurationDetailsView.swift in Sources */,
 				09B59A632CB37E3900B52F87 /* BoxingProTrainerApp.swift in Sources */,
+				092D69702CB87A1400614208 /* TimerControlsView.swift in Sources */,
 				09B59A9B2CB5DF1E00B52F87 /* Interval.swift in Sources */,
 				09B59A992CB5A6E100B52F87 /* DetailsView.swift in Sources */,
 			);
