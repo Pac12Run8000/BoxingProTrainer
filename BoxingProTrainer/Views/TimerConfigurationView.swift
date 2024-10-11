@@ -2,12 +2,12 @@ import SwiftUI
 
 struct TimerConfigurationView: View {
     @ObservedObject var presenter: TimerConfigurationPresenter
-    @State private var selectedInterval: String = "30 seconds" // Default to the first interval
+    @State private var selectedInterval: String = "" // No default interval set initially
     @State private var timerDisplay: String = "00:00" // Initial timer display set to 0:00
     @State private var elapsedTime: Int = 0 // Elapsed time in seconds
     @State private var timer: Timer? = nil // Timer object to handle the countdown
     @State private var isPaused: Bool = false // State to track whether the timer is paused
-    @State private var totalTimeInSeconds: Int = 0 // Total time set by the dropdown
+    @State private var totalTimeInSeconds: Int = 0 // Initialize with no time set initially
 
     var body: some View {
         NavigationView {
@@ -27,7 +27,7 @@ struct TimerConfigurationView: View {
                     // Integrate the IntervalPickerView
                     IntervalPickerView(selectedInterval: $selectedInterval, interval: presenter.currentInterval)
                         .onChange(of: selectedInterval) { _ in
-                            updateTotalTimeInSeconds()
+                            updateTotalTimeInSeconds() // Update the interval when the dropdown changes
                         }
 
                     // Integrate the TimerControlsView with start, reset, and pause actions
@@ -43,6 +43,24 @@ struct TimerConfigurationView: View {
             }
             .navigationTitle("Timer Configuration")
             .navigationBarTitleDisplayMode(.inline)
+        }
+        .onAppear {
+            setInitialDefaultInterval() // Set the default interval based on the configuration when the view appears
+        }
+        .onChange(of: presenter.currentPage) { _ in
+            setInitialDefaultInterval() // Update the default interval when the configuration changes
+        }
+    }
+
+    // Function to set the initial default interval based on the current configuration
+    private func setInitialDefaultInterval() {
+        let currentConfiguration = presenter.getCurrentConfiguration().title
+        if currentConfiguration == "Anaerobic Lactic Energy System (Glycolytic System)" {
+            selectedInterval = "30 seconds"
+            totalTimeInSeconds = 30
+        } else if currentConfiguration == "Aerobic Energy System (Oxidative System)" {
+            selectedInterval = "1 minute"
+            totalTimeInSeconds = 60
         }
     }
 
