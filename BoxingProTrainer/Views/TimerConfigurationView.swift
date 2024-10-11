@@ -26,7 +26,7 @@ struct TimerConfigurationView: View {
 
                     // Integrate the IntervalPickerView
                     IntervalPickerView(selectedInterval: $selectedInterval, interval: presenter.currentInterval)
-                        .onChange(of: selectedInterval) { newValue in
+                        .onChange(of: selectedInterval) { _ in
                             updateTotalTimeInSeconds()
                         }
 
@@ -34,7 +34,7 @@ struct TimerConfigurationView: View {
                     TimerControlsView(timerDisplay: $timerDisplay,
                                       startTimerAction: startTimer,
                                       resetTimerAction: resetTimer,
-                                      pauseTimerAction: pauseTimer,
+                                      pauseTimerAction: togglePauseResumeTimer,
                                       isPaused: $isPaused)
 
                     Spacer()
@@ -46,12 +46,10 @@ struct TimerConfigurationView: View {
         }
     }
 
-    // Function to start the count-up timer
+    // Function to start or resume the timer
     private func startTimer() {
         timer?.invalidate() // Stop any existing timer
-        isPaused = false // Set paused state to false when starting the timer
-        elapsedTime = 0
-        updateTimerDisplay()
+        isPaused = false // Set paused state to false when starting or resuming the timer
 
         // Create a new timer that fires every second
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
@@ -72,9 +70,14 @@ struct TimerConfigurationView: View {
         updateTimerDisplay() // Reset the timer display to 00:00
     }
 
-    // Function to pause or resume the timer
-    private func pauseTimer() {
+    // Function to toggle pause or resume state
+    private func togglePauseResumeTimer() {
         isPaused.toggle()
+        if !isPaused {
+            startTimer() // Resume the timer if it's not paused
+        } else {
+            timer?.invalidate() // Pause the timer
+        }
     }
 
     // Function to update the timer display
