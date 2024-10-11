@@ -7,6 +7,7 @@ struct TimerControlsView: View {
     let pauseTimerAction: () -> Void
     @Binding var isPaused: Bool
     let showRunningTimerButton: Bool // New parameter to control button visibility
+    let selectedInterval: String // New parameter for the selected interval
 
     var body: some View {
         VStack {
@@ -55,7 +56,7 @@ struct TimerControlsView: View {
 
             // Display Running Timer button, only visible in the second configuration
             if showRunningTimerButton {
-                NavigationLink(destination: RunningTimerDetailView()) {
+                NavigationLink(destination: RunningTimerDetailView(selectedInterval: selectedInterval)) {
                     Text("Display Running Timer")
                         .font(.headline)
                         .foregroundColor(.white)
