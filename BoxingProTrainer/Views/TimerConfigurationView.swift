@@ -2,11 +2,12 @@ import SwiftUI
 
 struct TimerConfigurationView: View {
     @ObservedObject var presenter: TimerConfigurationPresenter
-    @State private var selectedInterval: String = ""
+    @State private var selectedInterval: String = "30 seconds" // Default to the first interval
     @State private var timerDisplay: String = "00:00" // Initial timer display set to 0:00
     @State private var elapsedTime: Int = 0 // Elapsed time in seconds
     @State private var timer: Timer? = nil // Timer object to handle the countdown
     @State private var isPaused: Bool = false // State to track whether the timer is paused
+    @State private var totalTimeInSeconds: Int = 0 // Total time set by the dropdown
 
     var body: some View {
         NavigationView {
@@ -25,6 +26,9 @@ struct TimerConfigurationView: View {
 
                     // Integrate the IntervalPickerView
                     IntervalPickerView(selectedInterval: $selectedInterval, interval: presenter.currentInterval)
+                        .onChange(of: selectedInterval) { newValue in
+                            updateTotalTimeInSeconds()
+                        }
 
                     // Integrate the TimerControlsView with start, reset, and pause actions
                     TimerControlsView(timerDisplay: $timerDisplay,
@@ -51,11 +55,11 @@ struct TimerConfigurationView: View {
 
         // Create a new timer that fires every second
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            if !isPaused && elapsedTime < 30 {
+            if !isPaused && elapsedTime < totalTimeInSeconds {
                 elapsedTime += 1
                 updateTimerDisplay()
-            } else if elapsedTime >= 30 {
-                timer?.invalidate() // Stop the timer when it reaches 30 seconds
+            } else {
+                timer?.invalidate() // Stop the timer when it reaches the specified interval
             }
         }
     }
@@ -78,5 +82,23 @@ struct TimerConfigurationView: View {
         let minutes = elapsedTime / 60
         let seconds = elapsedTime % 60
         timerDisplay = String(format: "%02d:%02d", minutes, seconds)
+    }
+
+    // Function to update the total time in seconds based on the selected interval
+    private func updateTotalTimeInSeconds() {
+        switch selectedInterval {
+        case "30 seconds":
+            totalTimeInSeconds = 30
+        case "45 seconds":
+            totalTimeInSeconds = 45
+        case "1 minute":
+            totalTimeInSeconds = 60
+        case "1 minute 30 seconds":
+            totalTimeInSeconds = 90
+        case "2 minutes":
+            totalTimeInSeconds = 120
+        default:
+            totalTimeInSeconds = 0
+        }
     }
 }
