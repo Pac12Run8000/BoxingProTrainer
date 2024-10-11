@@ -53,13 +53,10 @@ struct TimerControlsView: View {
             .padding(.horizontal)
             .padding(.top, 10)
 
-            // Running Timer button, only visible in the second configuration
+            // Display Running Timer button, only visible in the second configuration
             if showRunningTimerButton {
-                Button(action: {
-                    // Action for the Running Timer button can be added here
-                    print("Running Timer button pressed")
-                }) {
-                    Text("Running Timer")
+                NavigationLink(destination: RunningTimerDetailView()) {
+                    Text("Display Running Timer")
                         .font(.headline)
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
