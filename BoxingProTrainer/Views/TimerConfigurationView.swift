@@ -30,12 +30,16 @@ struct TimerConfigurationView: View {
                             updateTotalTimeInSeconds() // Update the interval when the dropdown changes
                         }
 
-                    // Integrate the TimerControlsView with start, reset, and pause actions
+                    // Determine if the "Running Timer" button should be shown based on the configuration
+                    let showRunningTimerButton = presenter.getCurrentConfiguration().title == "Aerobic Energy System (Oxidative System)"
+
+                    // Integrate the TimerControlsView with start, reset, pause, and running timer actions
                     TimerControlsView(timerDisplay: $timerDisplay,
                                       startTimerAction: startTimer,
                                       resetTimerAction: resetTimer,
                                       pauseTimerAction: togglePauseResumeTimer,
-                                      isPaused: $isPaused)
+                                      isPaused: $isPaused,
+                                      showRunningTimerButton: showRunningTimerButton)
 
                     Spacer()
                 }

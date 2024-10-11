@@ -6,6 +6,7 @@ struct TimerControlsView: View {
     let resetTimerAction: () -> Void
     let pauseTimerAction: () -> Void
     @Binding var isPaused: Bool
+    let showRunningTimerButton: Bool // New parameter to control button visibility
 
     var body: some View {
         VStack {
@@ -51,6 +52,24 @@ struct TimerControlsView: View {
             }
             .padding(.horizontal)
             .padding(.top, 10)
+
+            // Running Timer button, only visible in the second configuration
+            if showRunningTimerButton {
+                Button(action: {
+                    // Action for the Running Timer button can be added here
+                    print("Running Timer button pressed")
+                }) {
+                    Text("Running Timer")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.blue) // Blue color for the running timer button
+                        .cornerRadius(8)
+                }
+                .padding(.horizontal)
+                .padding(.top, 10)
+            }
         }
     }
 }
