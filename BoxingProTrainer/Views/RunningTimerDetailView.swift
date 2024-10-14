@@ -4,6 +4,7 @@ struct RunningTimerDetailView: View {
     let selectedInterval: String // Property to hold the selected interval
     @State private var numberOfRounds: Int = 0 // State to track the number of rounds
     @State private var isRunning: Bool = false // State to toggle between 'Start' and 'Stop'
+    @State private var countdown: Int? = nil // Countdown state (nil means no countdown is active)
 
     var body: some View {
         ZStack {
@@ -72,7 +73,11 @@ struct RunningTimerDetailView: View {
 
                 // Start/Stop Button
                 Button(action: {
-                    isRunning.toggle() // Toggle between 'Start' and 'Stop'
+                    if !isRunning {
+                        startCountdown()
+                    } else {
+                        isRunning.toggle() // Stop the timer
+                    }
                 }) {
                     Text(isRunning ? "Stop" : "Start") // Switch button label
                         .font(.headline)
@@ -100,14 +105,41 @@ struct RunningTimerDetailView: View {
 
                 Spacer()
             }
+
+            // Countdown overlay
+            if let countdown = countdown {
+                ZStack {
+                    Color.black.opacity(0.7) // Dark overlay
+                        .edgesIgnoringSafeArea(.all)
+
+                    Text("\(countdown)") // Display the countdown number
+                        .font(.system(size: 100, weight: .bold, design: .default))
+                        .foregroundColor(.white)
+                }
+            }
         }
         .navigationTitle("Running Timer")
         .navigationBarTitleDisplayMode(.inline)
+    }
+
+    // Function to start the 5-second countdown
+    private func startCountdown() {
+        countdown = 10 // Set countdown to 5 seconds
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            if let currentCountdown = countdown, currentCountdown > 0 {
+                countdown = currentCountdown - 1 // Decrease the countdown each second
+            } else {
+                timer.invalidate() // Stop the countdown timer
+                countdown = nil // Hide the overlay
+                isRunning = true // Start the main timer
+            }
+        }
     }
 
     // Function to reset the number of rounds and stop the timer
     private func reset() {
         numberOfRounds = 0
         isRunning = false
+        countdown = nil // Clear any active countdown
     }
 }

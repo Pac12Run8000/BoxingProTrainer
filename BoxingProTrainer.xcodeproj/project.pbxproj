@@ -12,6 +12,7 @@
 		092D696E2CB879EA00614208 /* IntervalPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092D696D2CB879EA00614208 /* IntervalPickerView.swift */; };
 		092D69702CB87A1400614208 /* TimerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092D696F2CB87A1400614208 /* TimerControlsView.swift */; };
 		092D69722CB97BA700614208 /* RunningTimerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092D69712CB97BA700614208 /* RunningTimerDetailView.swift */; };
+		092D69752CBDC4F400614208 /* timerCountDown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 092D69742CBDC4F400614208 /* timerCountDown.mp3 */; };
 		09B59A632CB37E3900B52F87 /* BoxingProTrainerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B59A622CB37E3900B52F87 /* BoxingProTrainerApp.swift */; };
 		09B59A652CB37E3900B52F87 /* TimerConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B59A642CB37E3900B52F87 /* TimerConfigurationView.swift */; };
 		09B59A672CB37E3F00B52F87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09B59A662CB37E3F00B52F87 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		092D696D2CB879EA00614208 /* IntervalPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalPickerView.swift; sourceTree = "<group>"; };
 		092D696F2CB87A1400614208 /* TimerControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerControlsView.swift; sourceTree = "<group>"; };
 		092D69712CB97BA700614208 /* RunningTimerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningTimerDetailView.swift; sourceTree = "<group>"; };
+		092D69742CBDC4F400614208 /* timerCountDown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timerCountDown.mp3; sourceTree = "<group>"; };
 		09B59A5F2CB37E3900B52F87 /* BoxingProTrainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxingProTrainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B59A622CB37E3900B52F87 /* BoxingProTrainerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxingProTrainerApp.swift; sourceTree = "<group>"; };
 		09B59A642CB37E3900B52F87 /* TimerConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerConfigurationView.swift; sourceTree = "<group>"; };
@@ -91,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		092D69732CBDC3DA00614208 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				092D69742CBDC4F400614208 /* timerCountDown.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		09B59A562CB37E3900B52F87 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +124,7 @@
 		09B59A612CB37E3900B52F87 /* BoxingProTrainer */ = {
 			isa = PBXGroup;
 			children = (
+				092D69732CBDC3DA00614208 /* Sounds */,
 				09B59A952CB4955400B52F87 /* Views */,
 				09B59A922CB4950F00B52F87 /* Presenters */,
 				09B59A8F2CB494A600B52F87 /* Interactors */,
@@ -294,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09B59A6A2CB37E3F00B52F87 /* Preview Assets.xcassets in Resources */,
+				092D69752CBDC4F400614208 /* timerCountDown.mp3 in Resources */,
 				09B59A672CB37E3F00B52F87 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
