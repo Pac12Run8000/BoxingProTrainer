@@ -1,10 +1,12 @@
 import SwiftUI
+import AVFoundation
 
 struct RunningTimerDetailView: View {
     let selectedInterval: String // Property to hold the selected interval
     @State private var numberOfRounds: Int = 0 // State to track the number of rounds
     @State private var isRunning: Bool = false // State to toggle between 'Start' and 'Stop'
     @State private var countdown: Int? = nil // Countdown state (nil means no countdown is active)
+    @State var audioPlayer: AVAudioPlayer?
 
     var body: some View {
         ZStack {
@@ -77,6 +79,7 @@ struct RunningTimerDetailView: View {
                         startCountdown()
                     } else {
                         isRunning.toggle() // Stop the timer
+                        playSound(soundName: "stop") // Play stop sound
                     }
                 }) {
                     Text(isRunning ? "Stop" : "Start") // Switch button label
@@ -125,8 +128,11 @@ struct RunningTimerDetailView: View {
     // Function to start the 5-second countdown
     private func startCountdown() {
         countdown = 10 // Set countdown to 5 seconds
+        playSound(soundName: "correctTimer") // Play the sound when countdown starts
+
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             if let currentCountdown = countdown, currentCountdown > 0 {
+//                playSound(soundName: "tick") // Play tick sound for each second
                 countdown = currentCountdown - 1 // Decrease the countdown each second
             } else {
                 timer.invalidate() // Stop the countdown timer
@@ -141,5 +147,18 @@ struct RunningTimerDetailView: View {
         numberOfRounds = 0
         isRunning = false
         countdown = nil // Clear any active countdown
+        playSound(soundName: "reset") // Play reset sound
+    }
+
+    // Function to play a sound
+    private func playSound(soundName: String) {
+        if let soundURL = Bundle.main.url(forResource: soundName, withExtension: "mp3") {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.play()
+            } catch {
+                print("Error playing sound: \(error.localizedDescription)")
+            }
+        }
     }
 }
