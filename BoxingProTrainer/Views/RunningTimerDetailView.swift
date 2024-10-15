@@ -28,7 +28,7 @@ struct RunningTimerDetailView: View {
                 VStack(spacing: 20) {
                     // Stepper for selecting the number of rounds
                     HStack {
-                        Text("How many rounds:")
+                        Text("Rounds:")
                             .font(.title3)
                             .foregroundColor(.black)
 
@@ -36,6 +36,7 @@ struct RunningTimerDetailView: View {
                             Text("\(numberOfRounds)") // Display the current number of rounds
                                 .font(.title3)
                                 .foregroundColor(.black)
+                                .fontWeight(.bold)
                         }
                         .padding(.horizontal)
                     }
@@ -52,7 +53,8 @@ struct RunningTimerDetailView: View {
                     // Exercise Time
                     VStack {
                         Text("Exercise time - \(formattedTime(for: exerciseTimeLeft ?? 60))")
-                            .font(.body)
+                            .font(.system(size: 28)) // Larger font size
+                            .bold() // Make it bold
                             .foregroundColor(.white)
                             .padding()
                             .frame(maxWidth: .infinity) // Full-width row
@@ -64,7 +66,8 @@ struct RunningTimerDetailView: View {
                     // Rest Time
                     VStack {
                         Text("Rest time - \(formattedTime(for: restTimeLeft ?? timeIntervalInSeconds()))")
-                            .font(.body)
+                            .font(.system(size: 28)) // Larger font size
+                            .bold() // Make it bold
                             .foregroundColor(.white)
                             .padding()
                             .frame(maxWidth: .infinity) // Full-width row
@@ -168,7 +171,7 @@ struct RunningTimerDetailView: View {
                 exerciseTimeLeft = currentExerciseTime - 1 // Decrease the exercise time each second
                 
                 // Play alert sound when the exercise time reaches 3 seconds
-                if currentExerciseTime == 3 {
+                if currentExerciseTime == 4 {
                     playSound(soundName: "endAlert")
                 }
             } else {
@@ -188,7 +191,7 @@ struct RunningTimerDetailView: View {
                 restTimeLeft = currentRestTime - 1 // Decrease the rest time each second
                 
                 // Play alert sound when the rest time reaches 3 seconds
-                if currentRestTime == 3 {
+                if currentRestTime == 4 {
                     playSound(soundName: "endAlert")
                 }
             } else {
