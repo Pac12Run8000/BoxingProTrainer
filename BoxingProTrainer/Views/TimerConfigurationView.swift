@@ -1,4 +1,5 @@
 import SwiftUI
+import AVFoundation
 
 struct TimerConfigurationView: View {
     @ObservedObject var presenter: TimerConfigurationPresenter
@@ -8,6 +9,7 @@ struct TimerConfigurationView: View {
     @State private var timer: Timer? = nil // Timer object to handle the countdown
     @State private var isPaused: Bool = false // State to track whether the timer is paused
     @State private var totalTimeInSeconds: Int = 0 // Initialize with no time set initially
+    @State private var audioPlayer: AVAudioPlayer? // Audio player to handle sounds
 
     var body: some View {
         NavigationView {
@@ -74,6 +76,9 @@ struct TimerConfigurationView: View {
         timer?.invalidate() // Stop any existing timer
         isPaused = false // Set paused state to false when starting or resuming the timer
 
+        // Play the start sound (correctTimer.mp3) when the timer starts
+        playSound(soundName: "correctTimer")
+
         // Create a new timer that fires every second
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             if !isPaused && elapsedTime < totalTimeInSeconds {
@@ -81,6 +86,9 @@ struct TimerConfigurationView: View {
                 updateTimerDisplay()
             } else {
                 timer?.invalidate() // Stop the timer when it reaches the specified interval
+
+                // Play the end sound (endAlert.mp3) when the timer ends
+                playSound(soundName: "endAlert")
             }
         }
     }
@@ -125,6 +133,18 @@ struct TimerConfigurationView: View {
             totalTimeInSeconds = 120
         default:
             totalTimeInSeconds = 0
+        }
+    }
+
+    // Function to play a sound
+    private func playSound(soundName: String) {
+        if let soundURL = Bundle.main.url(forResource: soundName, withExtension: "mp3") {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.play()
+            } catch {
+                print("Error playing sound: \(error.localizedDescription)")
+            }
         }
     }
 }
