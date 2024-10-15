@@ -166,6 +166,11 @@ struct RunningTimerDetailView: View {
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             if let currentExerciseTime = exerciseTimeLeft, currentExerciseTime > 0 {
                 exerciseTimeLeft = currentExerciseTime - 1 // Decrease the exercise time each second
+                
+                // Play alert sound when the exercise time reaches 3 seconds
+                if currentExerciseTime == 3 {
+                    playSound(soundName: "endAlert")
+                }
             } else {
                 timer.invalidate() // Stop the exercise timer
                 startRestTimer() // After exercise, start the rest timer
@@ -181,6 +186,11 @@ struct RunningTimerDetailView: View {
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             if let currentRestTime = restTimeLeft, currentRestTime > 0 {
                 restTimeLeft = currentRestTime - 1 // Decrease the rest time each second
+                
+                // Play alert sound when the rest time reaches 3 seconds
+                if currentRestTime == 3 {
+                    playSound(soundName: "endAlert")
+                }
             } else {
                 timer.invalidate() // Stop the rest timer
                 if currentRound < numberOfRounds {
