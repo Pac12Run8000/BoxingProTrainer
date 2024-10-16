@@ -1,5 +1,6 @@
 import SwiftUI
 import AVFoundation
+import UIKit
 
 struct RunningTimerDetailView: View {
     let selectedInterval: String // Property to hold the selected rest interval
@@ -11,10 +12,11 @@ struct RunningTimerDetailView: View {
     @State private var currentRound: Int = 0 // Track the current round
     @State private var isExercise: Bool = true // Track if we're in the exercise or rest period
     @State var audioPlayer: AVAudioPlayer?
+    @State var backgroundTask: UIBackgroundTaskIdentifier = .invalid // For background task handling
 
     var body: some View {
         ZStack {
-            Color(red: 0.9, green: 0.92, blue: 0.94) // Background color to match the main view
+            Color(red: 0.9, green: 0.92, blue: 0.94)
                 .edgesIgnoringSafeArea(.all)
 
             VStack(spacing: 20) {
@@ -24,16 +26,14 @@ struct RunningTimerDetailView: View {
                     .foregroundColor(.black)
                     .padding()
 
-                // Group the round selector, Exercise, and Rest times inside a bordered container
                 VStack(spacing: 20) {
-                    // Stepper for selecting the number of rounds
                     HStack {
                         Text("Rounds:")
                             .font(.title3)
                             .foregroundColor(.black)
 
                         Stepper(value: $numberOfRounds, in: 0...100) {
-                            Text("\(numberOfRounds)") // Display the current number of rounds
+                            Text("\(numberOfRounds)")
                                 .font(.title3)
                                 .foregroundColor(.black)
                                 .fontWeight(.bold)
@@ -42,7 +42,6 @@ struct RunningTimerDetailView: View {
                     }
                     .padding()
 
-                    // Display the current round
                     if currentRound > 0 {
                         Text("Current Round: \(currentRound) / \(numberOfRounds)")
                             .font(.headline)
@@ -50,76 +49,70 @@ struct RunningTimerDetailView: View {
                             .padding(.vertical, 5)
                     }
 
-                    // Exercise Time
                     VStack {
                         Text("Exercise time - \(formattedTime(for: exerciseTimeLeft ?? 60))")
-                            .font(.system(size: 28)) // Larger font size
-                            .bold() // Make it bold
+                            .font(.system(size: 28))
+                            .bold()
                             .foregroundColor(.white)
                             .padding()
-                            .frame(maxWidth: .infinity) // Full-width row
-                            .background(Color(red: 0.3, green: 0.35, blue: 0.4)) // Dark gray-blue background
+                            .frame(maxWidth: .infinity)
+                            .background(Color(red: 0.3, green: 0.35, blue: 0.4))
                             .cornerRadius(8)
                     }
                     .padding(.horizontal)
 
-                    // Rest Time
                     VStack {
                         Text("Rest time - \(formattedTime(for: restTimeLeft ?? timeIntervalInSeconds()))")
-                            .font(.system(size: 28)) // Larger font size
-                            .bold() // Make it bold
+                            .font(.system(size: 28))
+                            .bold()
                             .foregroundColor(.white)
                             .padding()
-                            .frame(maxWidth: .infinity) // Full-width row
-                            .background(Color(red: 1.0, green: 0.55, blue: 0.2)) // Orange background
+                            .frame(maxWidth: .infinity)
+                            .background(Color(red: 1.0, green: 0.55, blue: 0.2))
                             .cornerRadius(8)
                     }
                     .padding(.horizontal)
                 }
                 .padding()
-                .background(Color.white) // White background for the bordered group
-                .cornerRadius(10) // Rounded corners
-                .shadow(radius: 5) // Optional shadow for elevation
-                .overlay( // Border overlay
+                .background(Color.white)
+                .cornerRadius(10)
+                .shadow(radius: 5)
+                .overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.gray, lineWidth: 2) // Gray border
+                        .stroke(Color.gray, lineWidth: 2)
                 )
                 .padding(.horizontal)
 
-                Spacer(minLength: 40) // Creates space between the sections
+                Spacer(minLength: 40)
 
-                // Start/Stop Button
                 Button(action: {
-                    if numberOfRounds > 0 { // Check if the number of rounds is greater than 0
+                    if numberOfRounds > 0 {
                         if !isRunning {
                             startCountdown()
                         } else {
-                            isRunning.toggle() // Stop the timer
-                            playSound(soundName: "stop") // Play stop sound
+                            isRunning.toggle()
+                            playSound(soundName: "stop")
                         }
                     }
                 }) {
-                    Text(isRunning ? "Stop" : "Start") // Switch button label
+                    Text(isRunning ? "Stop" : "Start")
                         .font(.headline)
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(isRunning ? Color.red : (numberOfRounds > 0 ? Color.green : Color.gray)) // Red for 'Stop', green for 'Start', gray if rounds are 0
+                        .background(isRunning ? Color.red : (numberOfRounds > 0 ? Color.green : Color.gray))
                         .cornerRadius(8)
                 }
                 .padding(.horizontal)
-                .disabled(numberOfRounds == 0) // Disable button if rounds are set to 0
+                .disabled(numberOfRounds == 0)
 
-                // Reset Button
-                Button(action: {
-                    reset()
-                }) {
+                Button(action: reset) {
                     Text("Reset")
                         .font(.headline)
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(Color.blue) // Blue background for reset
+                        .background(Color.blue)
                         .cornerRadius(8)
                 }
                 .padding(.horizontal)
@@ -127,13 +120,12 @@ struct RunningTimerDetailView: View {
                 Spacer()
             }
 
-            // Countdown overlay
             if let countdown = countdown {
                 ZStack {
-                    Color.black.opacity(0.7) // Dark overlay
+                    Color.black.opacity(0.7)
                         .edgesIgnoringSafeArea(.all)
 
-                    Text("\(countdown)") // Display the countdown number
+                    Text("\(countdown)")
                         .font(.system(size: 100, weight: .bold, design: .default))
                         .foregroundColor(.white)
                 }
@@ -141,103 +133,94 @@ struct RunningTimerDetailView: View {
         }
         .navigationTitle("Running Timer")
         .navigationBarTitleDisplayMode(.inline)
+        .onDisappear(perform: endBackgroundTask)
     }
 
-    // Function to start the 10-second countdown
     private func startCountdown() {
-        countdown = 10 // Set countdown to 10 seconds
-        playSound(soundName: "correctTimer") // Play the sound when countdown starts
+        countdown = 10
+        playSound(soundName: "correctTimer")
 
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             if let currentCountdown = countdown, currentCountdown > 0 {
-                countdown = currentCountdown - 1 // Decrease the countdown each second
+                countdown = currentCountdown - 1
             } else {
-                timer.invalidate() // Stop the countdown timer
-                countdown = nil // Hide the overlay
-                currentRound = 1 // Start with round 1
-                startExerciseTimer() // Start the 1-minute exercise timer
+                timer.invalidate()
+                countdown = nil
+                currentRound = 1
+                startExerciseTimer()
             }
         }
     }
 
-    // Function to start the 1-minute exercise timer
     private func startExerciseTimer() {
-        exerciseTimeLeft = 60 // Set the exercise time to 1 minute (60 seconds)
-        isRunning = true // Set the timer to running
-        isExercise = true // Set the state to "exercise"
+        exerciseTimeLeft = 60
+        isRunning = true
+        isExercise = true
+        beginBackgroundTask()
 
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             if let currentExerciseTime = exerciseTimeLeft, currentExerciseTime > 0 {
-                exerciseTimeLeft = currentExerciseTime - 1 // Decrease the exercise time each second
-                
-                // Play alert sound when the exercise time reaches 3 seconds
+                exerciseTimeLeft = currentExerciseTime - 1
+
                 if currentExerciseTime == 4 {
                     playSound(soundName: "endAlert")
                 }
             } else {
-                timer.invalidate() // Stop the exercise timer
-                startRestTimer() // After exercise, start the rest timer
+                timer.invalidate()
+                startRestTimer()
             }
         }
     }
 
-    // Function to start the rest timer
     private func startRestTimer() {
-        restTimeLeft = timeIntervalInSeconds() // Set the rest time based on the selected interval
-        isExercise = false // Set the state to "rest"
+        restTimeLeft = timeIntervalInSeconds()
+        isExercise = false
 
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             if let currentRestTime = restTimeLeft, currentRestTime > 0 {
-                restTimeLeft = currentRestTime - 1 // Decrease the rest time each second
-                
-                // Play alert sound when the rest time reaches 3 seconds
+                restTimeLeft = currentRestTime - 1
+
                 if currentRestTime == 4 {
                     playSound(soundName: "endAlert")
                 }
             } else {
-                timer.invalidate() // Stop the rest timer
+                timer.invalidate()
                 if currentRound < numberOfRounds {
-                    currentRound += 1 // Move to the next round
-                    startExerciseTimer() // Start the exercise timer again for the next round
+                    currentRound += 1
+                    startExerciseTimer()
                 } else {
-                    isRunning = false // All rounds are completed
-                    playSound(soundName: "stop") // Play stop sound when all rounds are done
+                    isRunning = false
+                    playSound(soundName: "stop")
+                    endBackgroundTask()
                 }
             }
         }
     }
 
-    // Function to reset the number of rounds and stop the timer
     private func reset() {
         numberOfRounds = 0
         currentRound = 0
         isRunning = false
-        countdown = nil // Clear any active countdown
-        exerciseTimeLeft = nil // Clear exercise time
-        restTimeLeft = nil // Clear rest time
-        playSound(soundName: "reset") // Play reset sound
+        countdown = nil
+        exerciseTimeLeft = nil
+        restTimeLeft = nil
+        playSound(soundName: "reset")
     }
 
-    // Function to format time as MM:SS
     private func formattedTime(for seconds: Int) -> String {
         let minutes = seconds / 60
         let remainingSeconds = seconds % 60
         return String(format: "%02d:%02d", minutes, remainingSeconds)
     }
 
-    // Function to convert the selected interval to seconds
     private func timeIntervalInSeconds() -> Int {
         switch selectedInterval {
-        case "1 minute":
-            return 60
-        case "2 minutes":
-            return 120
-        default:
-            return 60 // Default to 1 minute
+        case "1 minute": return 60
+        case "2 minutes": return 120
+        default: return 60
         }
     }
 
-    // Function to play a sound
     private func playSound(soundName: String) {
         if let soundURL = Bundle.main.url(forResource: soundName, withExtension: "mp3") {
             do {
@@ -246,6 +229,19 @@ struct RunningTimerDetailView: View {
             } catch {
                 print("Error playing sound: \(error.localizedDescription)")
             }
+        }
+    }
+
+    private func beginBackgroundTask() {
+        backgroundTask = UIApplication.shared.beginBackgroundTask {
+            endBackgroundTask()
+        }
+    }
+
+    private func endBackgroundTask() {
+        if backgroundTask != .invalid {
+            UIApplication.shared.endBackgroundTask(backgroundTask)
+            backgroundTask = .invalid
         }
     }
 }
